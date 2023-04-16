@@ -24,7 +24,7 @@ With Mod Config Menu, you will be able to customise the Boss Rush Wave Counter e
 
 # HOW DO I MOVE THE COUNTER?
 
-1. First you need to be in Boss Rush. I find the easiest way to do this is to start up any challange from the main menu since achievements are locked during challanges so you won't accidentally unlock anything. Next open the console with "~" and run the following commands "stage 5" to put you on Depths/Necropolis 1, "giveitem k5" to give yourself and emperor card, and "debug 10" so you don't have to spend time fighting any bosses. Exit the console, use the emperor card, and go to the next floor. Once on Depths/Necropolis 2, give yourself another emperor card and use it. Now you can enter the Boss Rush room.
+1. First you need to be in Boss Rush. I find the easiest way to do this is to start up any challenge from the main menu since achievements are locked during challanges so you won't accidentally unlock anything. Next open the console with "~" and run the following commands "stage 5" to put you on Depths/Necropolis 1, "giveitem k5" to give yourself and emperor card, and "debug 10" so you don't have to spend time fighting any bosses. Exit the console, use the emperor card, and go to the next floor. Once on Depths/Necropolis 2, give yourself another emperor card and use it. Now you can enter the Boss Rush room.
 
 2. When you're in the Boss Rush room, to adjust the position of the counter, hold "/" on your keyboard to enter Edit Mode. You'll know you're in Edit Mode when there's big red text in the middle of your screen that says "Edit Mode".
 
@@ -33,6 +33,62 @@ With Mod Config Menu, you will be able to customise the Boss Rush Wave Counter e
 4. Now the position of the counter will be saved and you can exit back to the main menu. The position of the counter can always be changed again like this as long as you are in the Boss Rush room.
 
 5. If you ever want to reset the counter to its default position, make sure you are in the Boss Rush room, and press "."
+
+# DEVELOPMENT USEFUL TIPS
+
+## PARTICULAR CASES TO CHECK
+
+Larry Jr, Fistula, Blastocyst and some others are bosses that can break the counting method of the wave counter.
+Be sure to check with these bosses when testing any change in the logic of updating the wave counter.
+
+The activable item Meat Cleaver splits any enemy in the room, including bosses.
+It can also break the wave counter and needs to be checked.
+
+## DEBUG CONSOLE COMMANDS
+
+```sh
+# Reload mod (only main.lua)
+luamod BossRushWaveCounter
+
+# Effects
+## Infinite HP
+debug 3
+## High damage (+40)
+debug 4
+## Fast auto kill enemy entities
+debug 10
+
+# Go to Depth I
+stage 5
+
+# Cards
+## The Fool (to test the logic of exiting boss rush while fighting)
+giveitem k1
+## The Emperor (to TP to the boss, and to speed up level navigation)
+giveitem k5
+
+# Room items
+## Chest (to trigger challenge room)
+spawn 5.50
+## Mega Battery
+spawn 5.90.3
+## Rainbow Poop (full health)
+gridspawn 1494
+
+# Items
+## Mr ME! (to force open boss challenge rooms)
+giveitem c527
+## Meat Cleaver
+giveitem c631
+
+# Bosses
+## Larry Jr
+spawn 19.0
+## Fistula
+spawn 71.0.0
+## Blastocyst
+spawn 74.0
+```
 
 # IMPORTANT
 

@@ -48,7 +48,7 @@ function save:loadData()
 end
 
 function save:saveData()
-    if variables.wave < 15 and variables.wave ~= 0 then
+    if variables.wave < variables.roomTypeMaxWaves and variables.wave ~= 0 then
         local table = { variables.wave - 1, variables.horizontalAdjustment, variables.verticalAdjustment, variables.displayPreset, variables.textR, variables.textG, variables.textB, variables.barScale, variables.textScale, variables.textNudge, variables.isUpdated }
         save.modRef.SaveData(save.modRef, json.encode(table))
     else

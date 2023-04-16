@@ -1,6 +1,10 @@
 local variables = {}
 
-variables.wave = 0  --this number keeps track of what boss rush wave you are on
+variables.roomType = nil
+variables.roomTypeMaxWaves = 0
+variables.wave = 0 -- this number keeps track of what boss rush wave you are on
+
+variables.editMode = false -- to see if the player is editing the position of the counter
 
 variables.horizontalAdjustment = 0
 variables.verticalAdjustment = 0
